@@ -3,13 +3,17 @@ import Image from 'next/image';
 import BulbIcon from '@/client/components/icon/bulb';
 import SearchIcon from '@/client/components/icon/search';
 import UserIcon from '@/client/components/icon/user';
+import { useState } from 'react';
+import Search from '@/client/components/layout/search';
 
 function Header() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
   return (
     <HeaderWrapper>
       <Image src={'/scrap.png'} alt="scrap" width="120" height="50" />
       <MenuWrapper>
-        <IconButton>
+        <IconButton onClick={() => setIsSearchOpen(!isSearchOpen)}>
           <SearchIcon />
         </IconButton>
         <IconButton>
@@ -19,6 +23,7 @@ function Header() {
           <BulbIcon />
         </IconButton>
       </MenuWrapper>
+      <Search isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </HeaderWrapper>
   );
 }

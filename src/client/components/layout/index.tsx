@@ -1,10 +1,11 @@
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import SearchIcon from '@/client/components/icon/search';
 import BulbIcon from '@/client/components/icon/bulb';
 import HomeIcon from '@/client/components/icon/home';
 import Header from '@/client/components/layout/header';
 import MobileHeader from '@/client/components/layout/mobile-header';
+import Search from '@/client/components/layout/search';
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,15 +13,17 @@ interface LayoutProps {
 
 function Layout({ children }: LayoutProps) {
   return (
-    <Wrapper>
-      <HeaderWrapper>
-        <Header />
-      </HeaderWrapper>
-      <MobilHeaderWrapper>
-        <MobileHeader />
-      </MobilHeaderWrapper>
-      <MainWrapper>{children}</MainWrapper>
-    </Wrapper>
+    <>
+      <Wrapper>
+        <HeaderWrapper>
+          <Header />
+        </HeaderWrapper>
+        <MobilHeaderWrapper>
+          <MobileHeader />
+        </MobilHeaderWrapper>
+        <MainWrapper>{children}</MainWrapper>
+      </Wrapper>
+    </>
   );
 }
 
