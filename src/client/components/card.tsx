@@ -1,8 +1,8 @@
-import { postType } from '@/client/types/post';
+import { PostType } from '@/client/types/post';
 import styled from 'styled-components';
 import Image from 'next/image';
 
-function Card({ title, image, description, author }: postType) {
+function Card({ title, image, description, author }: PostType) {
   return (
     <Wrapper>
       <TextWrapper>
@@ -38,6 +38,13 @@ const Wrapper = styled.div`
     display: flex;
     height: 120px;
     flex-direction: row-reverse;
+    border-radius: 10px;
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+    transition: all 0.5s;
+    transform: translateY(-2px);
   }
 `;
 

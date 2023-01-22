@@ -1,25 +1,18 @@
 import { ReactNode } from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
-import HamburgerIcon from '@/client/components/icon/hamburger';
+import SearchIcon from '@/client/components/icon/search';
+import BulbIcon from '@/client/components/icon/bulb';
+import HomeIcon from '@/client/components/icon/home';
+import Header from '@/client/components/layout/header';
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 function Layout({ children }: LayoutProps) {
-  const handleMenuClick = () => {
-    console.log('menu click');
-  };
-
   return (
     <Wrapper>
-      <HeaderWrapper>
-        <Image src={'/scrap.png'} alt="scrap" width="120" height="50" />
-        <MenuWrapper onClick={handleMenuClick}>
-          <HamburgerIcon />
-        </MenuWrapper>
-      </HeaderWrapper>
+      <Header />
       <MainWrapper>{children}</MainWrapper>
     </Wrapper>
   );
@@ -53,27 +46,4 @@ const MainWrapper = styled.div`
   }
 `;
 
-const HeaderWrapper = styled.header`
-  padding: 45px 0 30px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  max-width: 1296px;
-  width: 100%;
-  @media ${({ theme }) => theme.device.desktop} {
-    max-width: 952px;
-  }
-  @media ${({ theme }) => theme.device.laptop} {
-    max-width: 630px;
-  }
-  @media ${({ theme }) => theme.device.tablet} {
-    max-width: 364px;
-  }
-`;
-
-const MenuWrapper = styled.div`
-  cursor: pointer;
-`;
 export default Layout;
