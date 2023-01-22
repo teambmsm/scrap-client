@@ -4,6 +4,7 @@ import SearchIcon from '@/client/components/icon/search';
 import BulbIcon from '@/client/components/icon/bulb';
 import HomeIcon from '@/client/components/icon/home';
 import Header from '@/client/components/layout/header';
+import MobileHeader from '@/client/components/layout/mobile-header';
 
 interface LayoutProps {
   children: ReactNode;
@@ -12,7 +13,12 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
   return (
     <Wrapper>
-      <Header />
+      <HeaderWrapper>
+        <Header />
+      </HeaderWrapper>
+      <MobilHeaderWrapper>
+        <MobileHeader />
+      </MobilHeaderWrapper>
       <MainWrapper>{children}</MainWrapper>
     </Wrapper>
   );
@@ -28,6 +34,22 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const MobilHeaderWrapper = styled.div`
+  display: none;
+  width: 100%;
+  @media ${({ theme }) => theme.device.tablet} {
+    display: block;
+  }
+`;
+
+const HeaderWrapper = styled.div`
+  width: 100%;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
+`;
+
 const MainWrapper = styled.div`
   max-width: 1296px;
   width: 100%;
@@ -41,8 +63,6 @@ const MainWrapper = styled.div`
   }
   @media ${({ theme }) => theme.device.tablet} {
     max-width: 364px;
-    padding-left: 12px;
-    padding-right: 12px;
   }
 `;
 

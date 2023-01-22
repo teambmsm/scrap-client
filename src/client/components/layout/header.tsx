@@ -1,23 +1,19 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import BulbIcon from '@/client/components/icon/bulb';
-import HomeIcon from '@/client/components/icon/home';
 import SearchIcon from '@/client/components/icon/search';
+import UserIcon from '@/client/components/icon/user';
 
 function Header() {
-  const handleMenuClick = () => {
-    console.log('menu click');
-  };
-
   return (
     <HeaderWrapper>
       <Image src={'/scrap.png'} alt="scrap" width="120" height="50" />
-      <MenuWrapper onClick={handleMenuClick}>
+      <MenuWrapper>
         <IconButton>
           <SearchIcon />
         </IconButton>
         <IconButton>
-          <HomeIcon />
+          <UserIcon />
         </IconButton>
         <IconButton>
           <BulbIcon />
@@ -33,7 +29,7 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  margin: auto;
   max-width: 1296px;
   width: 100%;
   @media ${({ theme }) => theme.device.desktop} {
@@ -42,9 +38,6 @@ const HeaderWrapper = styled.header`
   @media ${({ theme }) => theme.device.laptop} {
     max-width: 630px;
   }
-  @media ${({ theme }) => theme.device.tablet} {
-    max-width: 364px;
-  }
 `;
 
 const MenuWrapper = styled.div`
@@ -52,6 +45,10 @@ const MenuWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+
+  @media ${({ theme }) => theme.device.tablet} {
+    display: none;
+  }
 `;
 
 const IconButton = styled.div`
@@ -61,6 +58,7 @@ const IconButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   &:hover {
     background-color: #eee;
     transition: all 0.5s;
