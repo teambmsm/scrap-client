@@ -70,11 +70,10 @@ const CardContainer = styled.div`
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
-
-  @media screen and (max-width: 1023px) {
+  @media ${({ theme }) => theme.device.laptop} {
     grid-template-columns: 1fr 1fr;
   }
-  @media only screen and (max-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     display: flex;
     flex-direction: column;
   }

@@ -28,13 +28,12 @@ const Wrapper = styled.div`
   background-color: #fff;
   overflow: hidden;
   border-radius: 20px;
+  cursor: pointer;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
     0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 
-  /* box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2); */
-
-  @media only screen and (max-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     width: 100%;
     display: flex;
     height: 120px;
@@ -47,8 +46,7 @@ const TextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-
-  @media only screen and (max-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     padding: 15px;
   }
 `;
@@ -71,14 +69,15 @@ const Desc = styled.div`
 
 const BigImage = styled(Image)`
   object-fit: cover;
-  @media only screen and (max-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     display: none;
   }
 `;
 const SmallImage = styled(Image)`
   display: none;
   object-fit: cover;
-  @media only screen and (max-width: 768px) {
+
+  @media ${({ theme }) => theme.device.tablet} {
     display: block;
   }
 `;

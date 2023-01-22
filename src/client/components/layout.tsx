@@ -38,16 +38,16 @@ const Wrapper = styled.div`
 const MainWrapper = styled.div`
   max-width: 1296px;
   width: 100%;
-  @media screen and (max-width: 1439px) {
+  @media ${({ theme }) => theme.device.desktop} {
     max-width: 952px;
     padding-bottom: 182px;
   }
-  @media screen and (max-width: 1023px) {
-    padding-bottom: 172px;
+  @media ${({ theme }) => theme.device.laptop} {
     max-width: 630px;
+    padding-bottom: 172px;
   }
-  @media only screen and (max-width: 768px) {
-    max-width: 375px;
+  @media ${({ theme }) => theme.device.tablet} {
+    max-width: 364px;
     padding-left: 12px;
     padding-right: 12px;
   }
@@ -62,13 +62,13 @@ const HeaderWrapper = styled.header`
 
   max-width: 1296px;
   width: 100%;
-  @media screen and (max-width: 1439px) {
+  @media ${({ theme }) => theme.device.desktop} {
     max-width: 952px;
   }
-  @media screen and (max-width: 1023px) {
+  @media ${({ theme }) => theme.device.laptop} {
     max-width: 630px;
   }
-  @media only screen and (max-width: 768px) {
+  @media ${({ theme }) => theme.device.tablet} {
     max-width: 364px;
   }
 `;
