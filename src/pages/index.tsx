@@ -1,4 +1,4 @@
-import Main from 'client/pages/main';
+import Main from '@/client/pages/main';
 import Head from 'next/head';
 
 export default function Home() {

@@ -1,3 +1,4 @@
+import GlobalStyle from '@/styles/global-styles';
 import Document, {
   Html,
   Head,

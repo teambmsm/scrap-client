@@ -5,9 +5,13 @@ const GlobalStyle = createGlobalStyle`
       ${reset}
       * {
         box-sizing: border-box;
+        padding: 0;
+        margin: 0;
       }
       body{
         font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+        display: flex;
+        justify-content: center;
       }
       a {
         color: inherit;
@@ -21,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
       h1, h2, h3, h4, h5, h6{
         font-family:'Maven Pro', sans-serif;
       }
-
+ 
       @media only screen and (max-width: 768px) {
         body {
           font-size: 12px;
@@ -33,6 +37,8 @@ const GlobalStyle = createGlobalStyle`
           font-size: 10px;
         }
       }
+
+  
     `;
 
 export default GlobalStyle;
